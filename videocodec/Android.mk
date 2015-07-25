@@ -29,6 +29,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 PLATFORM_USE_GEN_HW := \
     baytrail \
     cherrytrail
@@ -65,6 +67,8 @@ ifeq ($(TARGET_BOARD_PLATFORM),baytrail)
 LOCAL_CFLAGS += -DUSE_GEN_HW
 endif
 
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 ################################################################################
@@ -99,6 +103,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 LOCAL_SRC_FILES := \
     OMXComponentCodecBase.cpp \
     OMXVideoDecoderBase.cpp \
@@ -131,6 +137,8 @@ endif
 ifeq ($(TARGET_BOARD_PLATFORM),baytrail)
 LOCAL_CFLAGS += -DUSE_X_TILE
 endif
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_SHARED_LIBRARY)
 endif
@@ -167,6 +175,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 ifeq ($(TARGET_BOARD_PLATFORM),baytrail)
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/ufo
 endif
@@ -191,6 +201,9 @@ endif
 ifeq ($(TARGET_BOARD_PLATFORM),baytrail)
 LOCAL_CFLAGS += -DUSE_GEN_HW
 endif
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 # VP9 hybrid decoder and HW Render
@@ -213,6 +226,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/hardware \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
+
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 ifeq ($(TARGET_BOARD_PLATFORM),baytrail)
     LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/ufo
@@ -262,6 +277,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 PLATFORM_USE_GEN_HW := \
     baytrail \
     cherrytrail
@@ -294,6 +311,8 @@ ifeq ($(TARGET_BOARD_PLATFORM),baytrail)
 LOCAL_CFLAGS += -DUSE_GEN_HW
 endif
 
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 ################################################################################
@@ -318,6 +337,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/hardware \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
+
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 PLATFORM_USE_GEN_HW := \
     baytrail \
@@ -351,6 +372,8 @@ ifeq ($(TARGET_BOARD_PLATFORM),baytrail)
 LOCAL_CFLAGS += -DUSE_GEN_HW
 endif
 
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 ################################################################################
@@ -375,6 +398,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/hardware \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
+
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 PLATFORM_USE_GEN_HW := \
     baytrail \
@@ -412,6 +437,8 @@ ifeq ($(TARGET_BOARD_PLATFORM),baytrail)
 LOCAL_CFLAGS += -DUSE_GEN_HW
 endif
 
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 ################################################################################
@@ -442,6 +469,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 LOCAL_SRC_FILES := \
     OMXComponentCodecBase.cpp \
     OMXVideoDecoderBase.cpp
@@ -457,6 +486,8 @@ endif
 LOCAL_CFLAGS += -Werror
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libOMXVideoDecoderAVCSecure
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -489,6 +520,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/hardware \
     $(call include-path-for, frameworks-native)/media/openmax \
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 LOCAL_SRC_FILES := \
     OMXComponentCodecBase.cpp \
     OMXVideoEncoderBase.cpp \
@@ -498,6 +531,9 @@ LOCAL_CFLAGS += $(LOCAL_C_FLAGS)
 LOCAL_CFLAGS += -Werror
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libOMXVideoEncoderAVC
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 ################################################################################
@@ -526,6 +562,8 @@ LOCAL_C_INCLUDES := \
     $(TARGET_OUT_HEADERS)/libva \
     $(call include-path-for, frameworks-native)/media/hardware \
     $(call include-path-for, frameworks-native)/media/openmax \
+
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 LOCAL_SRC_FILES := \
     OMXComponentCodecBase.cpp \
@@ -540,6 +578,9 @@ endif
 LOCAL_CFLAGS += -Werror
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libOMXVideoEncoderH263
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 ################################################################################
@@ -569,6 +610,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/hardware \
     $(call include-path-for, frameworks-native)/media/openmax \
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 LOCAL_SRC_FILES := \
     OMXComponentCodecBase.cpp \
     OMXVideoEncoderBase.cpp \
@@ -579,6 +622,9 @@ LOCAL_CFLAGS += $(LOCAL_C_FLAGS)
 LOCAL_CFLAGS += -Werror
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libOMXVideoEncoderMPEG4
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 ################################################################################
@@ -604,6 +650,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/openmax \
     $(call include-path-for, libhardware)
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 LOCAL_SRC_FILES := \
     OMXComponentCodecBase.cpp \
     OMXVideoDecoderBase.cpp \
@@ -623,6 +671,8 @@ endif
 ifeq ($(TARGET_BOARD_PLATFORM),moorefield)
 LOCAL_CFLAGS += -DVED_TILING
 endif
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -653,6 +703,8 @@ LOCAL_C_INCLUDES := \
     $(call include-path-for, frameworks-native)/media/hardware \
     $(call include-path-for, frameworks-native)/media/openmax \
 
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
 LOCAL_SRC_FILES := \
     OMXComponentCodecBase.cpp \
     OMXVideoEncoderBase.cpp \
@@ -662,6 +714,9 @@ LOCAL_CFLAGS += $(LOCAL_C_FLAGS)
 LOCAL_CFLAGS += -Werror
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libOMXVideoEncoderVP8
+
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 include $(BUILD_SHARED_LIBRARY)
 
 endif # ifeq ($(strip $(BOARD_USES_WRS_OMXIL_CORE)),true)
